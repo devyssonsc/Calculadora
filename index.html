@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <div id="calculator">
+        <div id="output">0</div>
+
+        <div id="keyboard">
+
+            <button class="AC" onclick="AC()">AC</button><button class="backspace" onclick="backspace()"><i class="bi bi-backspace-fill"></i></button><button class="sinais" onclick="iniciarCalculo('/')">÷</button>
+            <button onclick="digitar(7)">7</button><button onclick="digitar(8)">8</button><button onclick="digitar(9)">9</button><button class="sinais" onclick="iniciarCalculo('*')">x</button>
+            <button onclick="digitar(4)">4</button><button onclick="digitar(5)">5</button><button onclick="digitar(6)">6</button><button class="sinais" onclick="iniciarCalculo('+')">+</button>
+            <button onclick="digitar(1)">1</button><button onclick="digitar(2)">2</button><button onclick="digitar(3)">3</button><button class="sinais" onclick="iniciarCalculo('-')">-</button>
+            <button>,</button><button onclick="digitar(0)">0</button><button class="igual" onclick="resultado()">=</button>
+
+        </div>
+    </div>
+
+</body>
+</html>
