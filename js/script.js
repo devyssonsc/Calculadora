@@ -33,7 +33,7 @@ dvKeyboard.addEventListener("click", (e) => {
 
 btResultado.addEventListener("click", (e) => {
     let resultado = String(calcularResultado(e));
-    resultado = resultado.slice(0, 12)
+    resultado = resultado.slice(0, 12);
     output.innerText = resultado;
     btBackspace.disabled = true;
     primeiroValor = resultado;
