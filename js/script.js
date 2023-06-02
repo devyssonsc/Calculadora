@@ -32,9 +32,9 @@ dvKeyboard.addEventListener("click", (e) => {
 })
 
 btResultado.addEventListener("click", (e) => {
-    let resultado = String(calcularResultado(e));
-    resultado = resultado.slice(0, 12);
-    output.innerText = resultado;
+    const resultado = calcularResultado(e);
+    const resultFormatado = formatarNumero(resultado);
+    output.innerText = resultFormatado;
     btBackspace.disabled = true;
     primeiroValor = resultado;
     isSecondValue = false;
@@ -75,15 +75,21 @@ btBackspace.addEventListener("click", () => {
 const definirNumeros = (targetId) => {
     if (output.innerText.length <= 11) {
         if (output.innerText == 0) {
-            output.innerText = Number(targetId.charAt(targetId.length - 1));
+            output.innerText = targetId.charAt(targetId.length - 1);
         } else {
-            output.innerText += Number(targetId.charAt(targetId.length - 1));
+            output.innerText += targetId.charAt(targetId.length - 1);
         }
 
+        if (output.innerText.length >= 4) {
+            const num = Number(output.innerText.replace(/\./g, ''));
+            const numFormatado = formatarNumero(num);
+            output.innerText = numFormatado;
+          }
+
         if (isSecondValue == false) {
-            primeiroValor = Number(output.innerText);
+            primeiroValor = Number(output.innerText.replace(/\./g, ''));
         } else {
-            segundoValor = Number(output.innerText);
+            segundoValor = Number(output.innerText.replace(/\./g, ''));
         }
     }
 }
@@ -117,3 +123,8 @@ const calcularResultado = (e) => {
 
     return result;
 }
+
+const formatarNumero = (num) => {
+    const numFormatado = num.toLocaleString('pt-BR');
+    return numFormatado;
+  };
