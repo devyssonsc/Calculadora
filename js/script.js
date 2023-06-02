@@ -4,6 +4,8 @@ const btResultado = document.querySelector("#btResultado");
 const btClear = document.querySelector("#btClear");
 const btBackspace = document.querySelector("#btBackspace");
 const sinais = document.querySelectorAll(".sinais");
+const virgula = document.querySelector("#inVirgula");
+
 
 let operacao;
 let primeiroValor;
@@ -67,6 +69,10 @@ btBackspace.addEventListener("click", () => {
     }
 })
 
+virgula.addEventListener("click", () => {
+    output.innerHTML += ",";
+})
+
 
 
 //----------------------------------------------------------------------------------------------------------------
@@ -81,15 +87,15 @@ const definirNumeros = (targetId) => {
         }
 
         if (output.innerText.length >= 4) {
-            const num = Number(output.innerText.replace(/\./g, ''));
+            const num = Number(output.innerText.replace(/\./g, '').replace(/\,/g, '.'));
             const numFormatado = formatarNumero(num);
             output.innerText = numFormatado;
           }
 
         if (isSecondValue == false) {
-            primeiroValor = Number(output.innerText.replace(/\./g, ''));
+            primeiroValor = Number(output.innerText.replace(/\./g, '').replace(/\,/g, '.'));
         } else {
-            segundoValor = Number(output.innerText.replace(/\./g, ''));
+            segundoValor = Number(output.innerText.replace(/\./g, '').replace(/\,/g, '.'));
         }
     }
 }
